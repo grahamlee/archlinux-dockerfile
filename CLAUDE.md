@@ -3,8 +3,12 @@
 Builds `docker.io/grahamlee/archlinux:latest` (Docker Hub), the base for
 every container image (see the `archlinux-base-image` skill). `make push`
 pulls the current upstream `archlinux:latest`, builds for `linux/amd64`
-with Podman and pushes; it needs a one-time `podman login docker.io`.
-This repo is on GitHub: keep secrets out of it and out of the image.
+with Podman and pushes. `make login` (run by `push`) logs in to Docker Hub
+as `grahamlee` with a personal access token (Read & Write) read from
+`~/.config/dockerhub/token` (mode 600, outside any repo, ignored by the
+dotfiles). The account rejects its password on the command line; only a
+token works. This repo is on GitHub: keep secrets out of it and out of
+the image.
 
 - Multi-stage: the `rootfs` stage configures pacman and runs
   `pacman -Syu`, then the final stage copies the whole filesystem into one

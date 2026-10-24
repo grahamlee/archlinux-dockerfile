@@ -1,12 +1,12 @@
-BASE := archlinux:latest
-TAG := grahamlee/archlinux:latest
+BASE := docker.io/library/archlinux:latest
+TAG := docker.io/grahamlee/archlinux:latest
 
 default: build
 
 build:
-	docker pull --platform linux/amd64 ${BASE}
-	docker build --platform linux/amd64 -t ${TAG} .
-	docker system prune -f
+	podman pull --platform linux/amd64 ${BASE}
+	podman build --platform linux/amd64 -t ${TAG} .
+	podman system prune -f
 
 push: build
-	docker push ${TAG}
+	podman push ${TAG}

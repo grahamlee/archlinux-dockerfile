@@ -1,4 +1,4 @@
-FROM archlinux:latest AS rootfs
+FROM docker.io/library/archlinux:latest AS rootfs
 
 RUN sed -ri 's/^#DisableSandboxFilesystem/DisableSandboxFilesystem/' /etc/pacman.conf
 RUN sed -ri 's/^#DisableSandboxSyscalls/DisableSandboxSyscalls/' /etc/pacman.conf

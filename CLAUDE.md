@@ -1,9 +1,10 @@
 # archlinux-dockerfile
 
-Builds `grahamlee/archlinux:latest` (Docker Hub), the base for every
-container image (see the `archlinux-base-image` skill). `make push` pulls
-the current upstream `archlinux:latest`, builds for `linux/amd64` and
-pushes.
+Builds `docker.io/grahamlee/archlinux:latest` (Docker Hub), the base for
+every container image (see the `archlinux-base-image` skill). `make push`
+pulls the current upstream `archlinux:latest`, builds for `linux/amd64`
+with Podman and pushes; it needs a one-time `podman login docker.io`.
+This repo is on GitHub: keep secrets out of it and out of the image.
 
 - Multi-stage: the `rootfs` stage configures pacman and runs
   `pacman -Syu`, then the final stage copies the whole filesystem into one

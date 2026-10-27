@@ -23,4 +23,4 @@ the image.
 - Rebuild and push this regularly, and before rebuilding images on it:
   their Dockerfiles start with `pacman -Syu`, so a stale base makes every
   image re-download the months of updates into an extra layer. An
-  8-month-old base made `rspamd-relay` 1.02 GB instead of ~450 MB.
+  8-month-old base made the `rspamd` image 1.02 GB instead of ~450 MB.
